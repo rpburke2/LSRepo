@@ -22,16 +22,13 @@ END
 
 START
 
-SET empty array
+SET empty array = stringArray
 
 GET first string user inputs
 GET second string user inputs
 GET third string user inputs
 
-WHILE string <= length of stringArray
-  SET string = 0
-  
-
+PRINT concatenated strings in stringArray
 
 
 END
@@ -43,6 +40,8 @@ END
     returns a new array with every other element
 
 START
+
+SET array of integers = numbers
 
 
 
