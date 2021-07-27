@@ -6,13 +6,17 @@
 
 const readline = require('readline-sync');
 
+function prompt(message) {
+  console.log(`${message}`);
+}
+
 function invalidNumber(num) {
   return Number.isNaN(Number(num));
 }
 
-console.log('Welcome to the Calculator!');
+prompt('Welcome to the Calculator!');
 
-console.log('What is the first number?');
+prompt('What is the first number?');
 let number1 = readline.question();
 
 while (invalidNumber(number1)) {
@@ -20,10 +24,15 @@ while (invalidNumber(number1)) {
   number1 = readline.question();
 }
 
-console.log('What is the second number?');
+prompt('What is the second number?');
 let number2 = readline.question();
 
-console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+while (invalidNumber(number2)) {
+  prompt("hmmm...that doesn't look like a valid number.")
+  number2 = readline.question();
+}
+
+prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
 let operation = readline.question();
 
 let output;
@@ -37,5 +46,5 @@ if (operation === '1') {
   output = Number(number1) / Number(number2);
 }
 
-console.log(`The result is ${output}.`);
+prompt(`The result is ${output}.`);
 
