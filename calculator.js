@@ -6,10 +6,19 @@
 
 const readline = require('readline-sync');
 
+function invalidNumber(num) {
+  return Number.isNaN(Number(num));
+}
+
 console.log('Welcome to the Calculator!');
 
 console.log('What is the first number?');
 let number1 = readline.question();
+
+while (invalidNumber(number1)) {
+  prompt("hmmm...that doesn't look like a valid number.")
+  number1 = readline.question();
+}
 
 console.log('What is the second number?');
 let number2 = readline.question();
