@@ -11,7 +11,7 @@ function prompt(message) {
 }
 
 function invalidNumber(num) {
-  return Number.isNaN(Number(num));
+  return num.trimStart() === '' || Number.isNaN(Number(num));
 }
 
 prompt('Welcome to the Calculator!');
@@ -34,6 +34,11 @@ while (invalidNumber(number2)) {
 
 prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
 let operation = readline.question();
+
+while (!['1', '2', '3', '4'].includes(operation)) {
+  prompt("You must choose 1, 2, 3 or 4.")
+  operation = readline.question();
+}
 
 let output;
 if (operation === '1') {
