@@ -1,0 +1,27 @@
+{
+  "name": "lesson_2",
+  "version": "1.0.0",
+  "description": "lesson 2 package.json file",
+  "main": "calculator.js",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-cli": "^1.1.1",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpburke2/LSRepo.git"
+  },
+  "author": "rob",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpburke2/LSRepo/issues"
+  },
+  "homepage": "https://github.com/rpburke2/LSRepo#readme"
+}
