@@ -4,7 +4,7 @@
 // Perform the operation on the two numbers
 // Print the result to the terminal
 
-require('./calculator_config.json')
+const config = require('./calculator_config.json');
 
 const readline = require('readline-sync');
 
@@ -17,30 +17,30 @@ function invalidNumber(num) {
   return num.trimStart() === '' || Number.isNaN(Number(num));
 }
 
-greeting;
+prompt(config.greeting);
 
 while (true) {
-  prompt('What is the first number?');
+  prompt(config.question.one);
   let number1 = readline.question();
 
   while (invalidNumber(number1)) {
-    prompt("hmmm...that doesn't look like a valid number.")
+    prompt(config.question.oops)
     number1 = readline.question();
   }
 
-  prompt('What is the second number?');
+  prompt(config.question.two);
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
-    prompt("hmmm...that doesn't look like a valid number.")
+    prompt(config.question.oops)
     number2 = readline.question();
   }
 
-  prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+  prompt(config.question.operation);
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
-    prompt("You must choose 1, 2, 3 or 4.")
+    prompt(config.question.chooseOp)
     operation = readline.question();
   }
 

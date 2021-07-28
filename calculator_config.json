@@ -1,4 +1,10 @@
-
-greeting :{
-  prompt('Welcome to the calculator!');
+{
+  "greeting" : "Welcome to the calculator!",
+  "question" :{
+    "one" : "What is the first number?",
+    "two" : "What is the second number?",
+    "oops" : "hmmm...that doesn't look like a valid number.",
+    "operation" : "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+    "chooseOp" : "You must choose 1, 2, 3 or 4."
+  }
 }
