@@ -4,6 +4,8 @@
 // Perform the operation on the two numbers
 // Print the result to the terminal
 
+require('./calculator_config.json')
+
 const readline = require('readline-sync');
 
 
@@ -15,7 +17,7 @@ function invalidNumber(num) {
   return num.trimStart() === '' || Number.isNaN(Number(num));
 }
 
-prompt('Welcome to the Calculator!');
+greeting;
 
 while (true) {
   prompt('What is the first number?');

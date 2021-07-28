@@ -1,0 +1,4 @@
+
+greeting :{
+  prompt('Welcome to the calculator!');
+}
