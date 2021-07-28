@@ -1,12 +1,12 @@
 
 {
    "loanCalculated" : { 
-     "monthlyAPR" : "Your monthly interest rate is: ",
-     "loanMonths" : "You will need to pay back your <AMOUNT> loan in months.",
+     "apr" : "Your monthly interest rate is: ",
+     "months" : "You will need to pay back your <AMOUNT> loan in months.",
    },
   "loanDetails" : {
     "amount" : "How much money would you like to borrow?",
     "apr" : "What is your Annaul Percentage Rate?",
-    "term" : "How long will it take you to pay this loan off?"
+    "months" : "How long will it take you to pay this loan off?"
   }
 }
