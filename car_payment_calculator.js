@@ -9,7 +9,7 @@
   - Monthly payment - m - 
   - Loan amount - p - loanDetials.amount
   - Monthly interest rate - j - loanDetails.apr
-  - Loan during in months - n - loanDetials.months
+  - Loan duration in months - n - loanDetials.months
 
 
 */
@@ -19,6 +19,23 @@
 const readline = require('readline-sync');
 const config = require('./car_payment_config.json');
 
-config.loanMonths.replace('<AMOUNT>', 123123)
+function prompt(message) {
+  console.log(`${message}`);
+}
 
-let monthlyPayment = loanDetails.amount * (loanDetails.apr / (1 - Math.pow((1 + j), (-n))));
+//config.loanMonths.replace('<AMOUNT>', 123123)
+
+
+prompt(config.greeting);
+
+prompt(config.loanDetails.amount); 
+let loanAmount = readline.question();
+
+prompt(config.loanDetails.months);
+let loanMonths = readline.question();
+
+prompt(config.loanDetails.apr);
+let loanAPR = readline.question();
+
+
+let monthlyPayment = loanAmount * (loanAPR / (1 - Math.pow((1 + j), (-loanMonths))));
