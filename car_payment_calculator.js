@@ -18,12 +18,14 @@
 
 const readline = require('readline-sync');
 const config = require('./car_payment_config.json');
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD'
+})
 
 function prompt(message) {
-  console.log(`${message}`);
+  console.log(`=> ${message}`);
 }
-
-//config.loanMonths.replace('<AMOUNT>', 123123)
 
 
 prompt(config.greeting);
@@ -38,4 +40,7 @@ prompt(config.loanDetails.apr);
 let loanAPR = readline.question();
 
 
-let monthlyPayment = loanAmount * (loanAPR / (1 - Math.pow((1 + j), (-loanMonths))));
+let monthlyPayment = loanAmount * (loanAPR / (1 - Math.pow((1 + loanAPR), (-loanMonths))));
+
+console.log(config.loanCalculated.payment.replace('<AMOUNT>', monthlyPayment));
+
