@@ -57,6 +57,8 @@ while (true) {
 
   prompt(`The result is ${output}.`);
 
+  prompt('-----------------------------');
+
   prompt('Would you like to perform another calculation?\n1) Yes 2)No');
   let answer = readline.question();
 

@@ -27,8 +27,18 @@ function prompt(message) {
   console.log(`=> ${message}`);
 }
 
+function isValidNumber(number) {
+  return number.trim() === '' ||
+  Number(number) < 0 ||
+  Number.isNaN(Number(number));
+}
+
+
+prompt('--------------------------------');
 
 prompt(config.greeting);
+
+prompt('--------------------------------');
 
 prompt(config.loanDetails.amount); 
 let loanAmount = readline.question();
@@ -39,6 +49,7 @@ let loanMonths = readline.question();
 prompt(config.loanDetails.apr);
 let loanAPR = readline.question();
 
+let loanAmount 
 
 let monthlyPayment = loanAmount * (loanAPR / (1 - Math.pow((1 + loanAPR), (-loanMonths))));
 
