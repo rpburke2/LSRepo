@@ -15,10 +15,7 @@
 
 const readline = require('readline-sync');
 const config = require('./car_payment_config.json');
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-})
+
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -26,8 +23,8 @@ function prompt(message) {
 
 function isValidNumber(number) {
   return number.trim() === '' ||
-  Number(number) < 0 ||
-  Number.isNaN(Number(number));
+    Number(number) < 0 ||
+    Number.isNaN(Number(number));
 }
 
 
@@ -39,7 +36,7 @@ prompt('');
 
 
 function getLoanAmount() {
-  prompt(config.loanDetails.amount); 
+  prompt(config.loanDetails.amount);
   let loanAmount = readline.question();
 
   while (isValidNumber(loanAmount)) {
