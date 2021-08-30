@@ -4,9 +4,9 @@
   - Ask user for the Annual Percentage Rate (APR)
   - Ask user for the Loan Duration
 
-  - Calculate Monthly Interest Rate for user
+  - Calculate Monthly Payment for user
   - Give user Loan Duration in Months
-  - Give user Monthly Interest Rate
+  - Give user Monthly Interest Rate for user
 
 
 */
