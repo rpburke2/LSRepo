@@ -100,7 +100,7 @@ while (true) {
 
   prompt('--');
 
-  prompt(config.loanCalculated.apr.replace('<AMOUNT>', loanAPR * 12 * 100));
+  prompt(config.loanCalculated.apr.replace('<AMOUNT>', (loanAPR * 12 * 100).toFixed(2)));
 
   prompt('');
   prompt('----------');
