@@ -40,18 +40,52 @@ prompt(config.greeting);
 
 prompt('--------------------------------');
 
-prompt(config.loanDetails.amount); 
-let loanAmount = readline.question();
+function getLoanAmount() {
+  prompt(config.loanDetails.amount); 
+  let loanAmount = readline.question();
 
-prompt(config.loanDetails.months);
-let loanMonths = readline.question();
+  while (loanAmount < 0 || Number.isNaN(Number(loanAmount)) || loanAmount.trimStart() === '') {
+    prompt("It looks like you've entered an invalid loan amount! ");
+    loanAmount = readline.question();
+  }
 
-prompt(config.loanDetails.apr);
-let loanAPR = readline.question();
+  return Number(loanAmount);
+}
 
-let loanAmount 
+function getLoanLength() {
+  prompt(config.loanDetails.months);
+  let loanMonths = readline.question();
+
+  while (loanMonths < 0 || Number.isNaN(Number(loanMonths)) || loanMonths.trimStart() === '' || (((loanMonths * 12) % 12) !== 0)); {
+    prompt("It looks like you've entered an invalid amount of years! ");
+    loanMonths = readline.question();
+  }
+
+  return Number(loanMonths) * 12;
+}
+
+function getAPR() {
+  prompt(config.loanDetails.apr);
+  let loanAPR = readline.question();
+
+  while (loanAPR > 100 || loanAPR < 0 || Number.isNaN(Number(loanAPR)) || loanAPR.trimStart() === '') {
+    prompt("It looks like you've entered an invalid APR! ");
+    loanAPR = readline.question();
+  }
+
+  return Number(loanAPR) / 12 / 200;
+}
+
+let loanAmount = getLoanAmount();
+
+let loanMonths = getLoanLength();
+
+let loanAPR = getAPR();
 
 let monthlyPayment = loanAmount * (loanAPR / (1 - Math.pow((1 + loanAPR), (-loanMonths))));
 
+
 console.log(config.loanCalculated.payment.replace('<AMOUNT>', monthlyPayment));
 
+
+console.log('Thanks for using our Payment Calculator!!');
