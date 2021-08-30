@@ -1,6 +1,6 @@
 
 {
-  "greeting" : "Welcome to the Car Loan Calculator!", 
+  "greeting" : "Welcome to our Car Loan Calculator!", 
   "term" : "While calculating your car loan please refrain from using special characters such as ',' and '$' as we will add those in for you - thank you!",
   "loanCalculated" : { 
      "apr" : "Your monthly interest rate is: <AMOUNT>%",

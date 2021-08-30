@@ -113,6 +113,6 @@ while (true) {
 
 }
 
-prompt('Thanks for using our Payment Calculator! See you next time :)');
+prompt('Thanks for using our Car Loan Calculator! See you next time :)');
 
 prompt('');
