@@ -1,14 +1,14 @@
 
 {
-  "greeting" : "Welcome to the Mortgage Museum!", 
+  "greeting" : "Welcome to the Car Loan Calculator!", 
   "loanCalculated" : { 
-     "apr" : "Your monthly interest rate is: <AMOUNT>",
-     "months" : "You will need to pay back your <AMOUNT> loan in months.",
+     "apr" : "Your monthly interest rate is: <AMOUNT>%",
+     "months" : "You will need to pay back your loan in <AMOUNT> months.",
      "payment" : "The monthly payment for your car loan is: <AMOUNT>."
    },
   "loanDetails" : {
-    "amount" : "How much money would you like to borrow?",
-    "apr" : "What is your Annaul Percentage Rate?",
-    "months" : "How many months will it take you to pay this loan off?"
+    "amount" : "How much money would you like to borrow?: $",
+    "apr" : "What is your Annaul Percentage Rate?: ",
+    "months" : "How many years will it take you to pay this loan off?: "
   }
 }
