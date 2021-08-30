@@ -8,8 +8,8 @@
      "payment" : "The monthly payment for your car loan is: $<AMOUNT>."
    },
   "loanDetails" : {
-    "amount" : "How much money would you like to borrow?: $",
-    "apr" : "What is your Annaul Percentage Rate?: ",
-    "months" : "How many years will it take you to pay this loan off?: "
+    "amount" : "How much money would you like to borrow?",
+    "apr" : "What is your Annual Percentage Rate? ",
+    "months" : "How many years will it take you to pay this loan off? "
   }
 }
