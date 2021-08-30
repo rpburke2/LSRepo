@@ -34,6 +34,8 @@ function isValidNumber(number) {
 prompt('');
 prompt(`***** ${config.greeting} ******`);
 prompt('');
+prompt(config.term);
+prompt('');
 
 
 function getLoanAmount() {
