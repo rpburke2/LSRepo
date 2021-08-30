@@ -106,13 +106,13 @@ while (true) {
   prompt('----------');
   prompt('');
 
-  prompt('Thanks for using our Payment Calculator! See you next time :)');
-
-  prompt('');
-
   prompt('Would you like to perform another car loan calculation?\n1) Yes 2)No');
   let answer = readline.question();
 
   if (answer !== '1') break;
 
 }
+
+prompt('Thanks for using our Payment Calculator! See you next time :)');
+
+prompt('');
