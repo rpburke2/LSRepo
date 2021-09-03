@@ -20,7 +20,7 @@ The winner is displayed.
 */
 
 const readline = require('readline-sync');
-VALID_CHOICES = ['rock', 'paper', 'scissors'];
+VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
 function prompt(msg) {
   console.log(`=> ${msg}`);
@@ -42,7 +42,12 @@ while (true) {
 
   if ((choice === 'rock' && computerChoice === 'scissors') ||
     (choice === 'scissors' && computerChoice === 'paper') ||
-    (choice === 'paper' && computerChoice === 'rock')) {
+    (choice === 'paper' && computerChoice === 'rock')) ||
+    (choice === 'lizard' && computerChoice === 'paper')) ||
+    (choice === 'spock' && computerChoice === 'rock')) ||
+    (choice === 'spock' && computerChoice === 'paper')) ||
+    (choice === 'scissors' && computerChoice === 'spock')) ||
+    (choice === 'paper' && computerChoice === '')) {
     prompt('You win!');
   } else if ((choice === 'scissors' && computerChoice === 'rock') ||
     (choice === 'paper' && computerChoice === 'scissors') ||
