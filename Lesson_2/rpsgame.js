@@ -40,28 +40,40 @@ while (true) {
 
   prompt(`You chose ${choice}. Computer chose ${computerChoice}.`);
 
-  if ((choice === 'rock' && computerChoice === 'scissors') ||
-    (choice === 'scissors' && computerChoice === 'paper') ||
-    (choice === 'paper' && computerChoice === 'rock') ||
-    (choice === 'lizard' && computerChoice === 'paper') ||
-    (choice === 'spock' && computerChoice === 'rock') ||
-    (choice === 'spock' && computerChoice === 'paper') ||
-    (choice === 'scissors' && computerChoice === 'spock') ||
-    (choice === 'paper' && computerChoice === '')) {
-    prompt('You win!');
-  } else if ((choice === 'scissors' && computerChoice === 'rock') ||
-    (choice === 'paper' && computerChoice === 'scissors') ||
-    (choice === 'rock' && computerChoice === 'paper')) {
-    prompt('Computer won!');
-  } else {
-    prompt("It's a tie!");
-  }
-  prompt('Would you like to play again? (y/n)');
-  let answer = readline.question().toLowerCase();
+  function displayWinner() {
+    if ((choice === 'rock' && computerChoice === 'scissors') ||
+      (choice === 'rock' && computerChoice === 'lizard') ||
+      (choice === 'paper' && computerChoice === 'rock') ||
+      (choice === 'paper' && computerChoice === 'spock') ||
+      (choice === 'scissors' && computerChoice === 'paper') ||
+      (choice === 'scissors' && computerChoice === 'lizard') ||
+      (choice === 'lizard' && computerChoice === 'paper') ||
+      (choice === 'lizard' && computerChoice === 'spock') ||
+      (choice === 'spock' && computerChoice === 'rock') ||
+      (choice === 'spock' && computerChoice === 'scissors')) {
+      prompt('You win!');
+    } else if ((choice === 'rock' && computerChoice === 'paper') ||
+      (choice === 'rock' && computerChoice === 'spock') ||
+      (choice === 'paper' && computerChoice === 'lizard') ||
+      (choice === 'paper' && computerChoice === 'scissors') ||
+      (choice === 'scissors' && computerChoice === 'rock') ||
+      (choice === 'scissors' && computerChoice === 'spock') ||
+      (choice === 'lizard' && computerChoice === 'scissors') ||
+      (choice === 'lizard' && computerChoice === 'rock') ||
+      (choice === 'spock' && computerChoice === 'paper') ||
+      (choice === 'spock' && computerChoice === 'lizard')) {
+      prompt('Computer wins!');
+    } else {
+      prompt("It's a tie!");
+    }
+    prompt('Would you like to play again? (y/n)');
+    let answer = readline.question().toLowerCase();
 
-  while (answer[0] !== 'y' && answer[0] !== 'n') {
-    prompt("Please enter 'y' or 'n'");
-    answer = readline.question();
+    while (answer[0] !== 'y' && answer[0] !== 'n') {
+      prompt("Please enter 'y' or 'n'");
+      answer = readline.question();
+    }
+    if (answer[0] !== 'y') break;
   }
-  if (answer[0] !== 'y') break;
 }
+
