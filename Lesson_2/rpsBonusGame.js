@@ -24,7 +24,7 @@ function prompt(msg) {
   console.log(`=> ${msg}`);
 }
 
-const RULES = `Welcome to Rock, Paper, Scissors, Lizard, Spock. Check out how to win below :
+const RULES = `Welcome to Rock, Paper, Scissors, Lizard, Spock. Check out how to win below:
 => Paper beats Rock
 => Scissors beats Paper
 => Rock beats Scissors
@@ -37,7 +37,7 @@ const RULES = `Welcome to Rock, Paper, Scissors, Lizard, Spock. Check out how to
 => Doctor Spock beats Rock
 `;
 
-const COMMANDS = `You can use the following commands :
+const COMMANDS = `You can use the following commands:
 => Press r for Rock
 => Press p for Paper
 => Press s for Scissors
@@ -53,119 +53,154 @@ const WINNING_COMBOS = {
   'Doctor Spock': ['rock', 'scissors']
 };
 
-function playerWins(choice, computerChoice) {
-  return WINNING_COMBOS[choice].includes(computerChoice);
-}
-
-function computerWins(computerChoice, choice) {
-  return WINNING_COMBOS[computerChoice].includes(choice);
-}
-
-function getComputerChoice() {
-  randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
-  computerChoice = VALID_CHOICES[randomIndex];
-  return computerChoice;
-}
-
-
-function convertChoice() {
-  switch (choice.toLowerCase()) {
-    case 'r': choice = 'rock';
-      break;
-    case 'p': choice = 'paper';
-      break;
-    case 's': choice = 'scissors';
-      break;
-    case 'l': choice = 'lizard';
-      break;
-    case 'd': choice = 'Doctor Spock';
-      break;
-  }
-  return choice;
-}
-
-function getPlayerAndComputerChoices() {
-  getChoice();
-  choice = convertChoice(choice);
-  getComputerChoice();
-  computerChoice = convertChoice(computerChoice);
-}
-
-
-
-function roundWinner(choice, computerChoice) {
+function printRules() {
   console.clear();
-  prompt(`You chose ${choice}, computer chose ${computerChoice} `);
-  if (playerWins(choice, computerChoice)) {
-    playerScore += 1;
-    prompt(`You Won round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
-  } else if (computerWins(computerChoice, choice)) {
-    computerScore += 1;
-    prompt(`Computer wins round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
-  } else {
-    prompt(`Round ${gameCount} was a tie! |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
-  }
+  prompt(RULES);
+  prompt('Press Enter to continue');
+  readline.question();
 }
 
-
-function noWinner() {
-  if (playerScore === 5) {
-    return false;
-  } else if (computerScore === 5) {
-    return false;
-  }
-  return true;
-}
-
-
-function finalWinner() {
+function printCommands() {
   console.clear();
-  if (playerScore > computerScore) {
-    prompt(`You are victorious! Final Score => You: [${playerScore}] Computer: [${computerScore}]`);
-  } else if (playerScore < computerScore) {
-    prompt(`The Machines have bested you! Final Score => You: [${playerScore}] Computer:: [${pcomputerScore}]`);
-  } else {
-    prompt(`It's a tie! Final Score => You: [${playerScore}] Computer: [${computerScore}]`);
-  }
+  prompt(COMMANDS);
+  prompt('Press Enter to continue');
+  readline.question();
 }
 
-
-function playAgain() {
-  prompt("Would you like to Rochambeau again?");
-  replayAnswer = readline.question();
-  while (replayAnswer[0] !== 'n' && replayAnswer[0] !== 'y') {
+function firstGameDisplay() {
+  if (gameCount === 0) {
+    printRules();
+    printCommands();
+    gameCount += 1;
     console.clear();
-    prompt("Please enter 'y' to play again or 'n' if you've had enough!");
-    replayAnswer = readline.question();
   }
-  return replayAnswer;
-}
 
 
-function endGame() {
-  if (replayAnswer[0] !== 'y') {
+  function playerWins(choice, computerChoice) {
+    return WINNING_COMBOS[choice].includes(computerChoice);
+  }
+
+  function computerWins(computerChoice, choice) {
+    return WINNING_COMBOS[computerChoice].includes(choice);
+  }
+
+  function getChoice() {
+    prompt(`Choose one :(r)ock , (p)aper, (s)issors, (l)izard, (d)octor spock }`);
+    choice = readline.question();
+    choice = choice.toLowerCase();
+    while (!VALID_CHOICES.includes(choice.toLowerCase())) {
+      prompt("That won't work, we need a valid input!");
+      choice = readline.question();
+      choice = choice.toLowerCase();
+    }
+    return choice;
+  }
+
+  function getComputerChoice() {
+    randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+    computerChoice = VALID_CHOICES[randomIndex];
+    return computerChoice;
+  }
+
+
+  function convertChoice() {
+    switch (choice.toLowerCase()) {
+      case 'r': choice = 'rock';
+        break;
+      case 'p': choice = 'paper';
+        break;
+      case 's': choice = 'scissors';
+        break;
+      case 'l': choice = 'lizard';
+        break;
+      case 'd': choice = 'Doctor Spock';
+        break;
+    }
+    return choice;
+  }
+
+  function getPlayerAndComputerChoices() {
+    getChoice();
+    choice = convertChoice(choice);
+    getComputerChoice();
+    computerChoice = convertChoice(computerChoice);
+  }
+
+
+
+  function roundWinner(choice, computerChoice) {
     console.clear();
-    console.log('Hey! Thanks for playing Rock, Paper, Scissors, Lizard, Spock!');
+    prompt(`You chose ${choice}, computer chose ${computerChoice} `);
+    if (playerWins(choice, computerChoice)) {
+      playerScore += 1;
+      prompt(`You Won round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+    } else if (computerWins(computerChoice, choice)) {
+      computerScore += 1;
+      prompt(`Computer wins round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+    } else {
+      prompt(`Round ${gameCount} was a tie! |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+    }
+  }
+
+
+  function noWinner() {
+    if (playerScore === 5) {
+      return false;
+    } else if (computerScore === 5) {
+      return false;
+    }
     return true;
-  } else {
+  }
+
+
+  function finalWinner() {
     console.clear();
-    gameCount = 1;
-    playerScore = 0;
-    computerScore = 0;
-    return false;
+    if (playerScore > computerScore) {
+      prompt(`You are victorious! Final Score => You: [${playerScore}] Computer: [${computerScore}]`);
+    } else if (playerScore < computerScore) {
+      prompt(`The Machines have bested you! Final Score => You: [${playerScore}] Computer:: [${pcomputerScore}]`);
+    } else {
+      prompt(`It's a tie! Final Score => You: [${playerScore}] Computer: [${computerScore}]`);
+    }
+  }
+
+
+  function playAgain() {
+    prompt("Would you like to Rochambeau again?");
+    replayAnswer = readline.question();
+    while (replayAnswer[0] !== 'n' && replayAnswer[0] !== 'y') {
+      console.clear();
+      prompt("Please enter 'y' to play again or 'n' if you've had enough!");
+      replayAnswer = readline.question();
+    }
+    return replayAnswer;
+  }
+
+
+  function endGame() {
+    if (replayAnswer[0] !== 'y') {
+      console.clear();
+      console.log('Hey! Thanks for playing Rock, Paper, Scissors, Lizard, Spock!');
+      return true;
+    } else {
+        console.clear();
+        gameCount = 1;
+        playerScore = 0;
+        computerScore = 0;
+      return false;
+    }
+  }
+
+  while (true) {
+    do {
+      firstGameDisplay();
+      getPlayerAndComputerChoices();
+      roundWinner(choice, computerChoice);
+    } while (noWinner());
+      finalWinner();
+      playAgain();
+    if (endGame()) {
+      break;
+    }
   }
 }
-
-while (true) {
-  do {
-    firstGameDisplay();
-    getPlayerAndComputerChoices();
-    roundWinner(choice, computerChoice);
-  } while (noWinner());
-  finalWinner();
-  playAgain();
-  if (endGame()) {
-    break;
-  }
-}
-
