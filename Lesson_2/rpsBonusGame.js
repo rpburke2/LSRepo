@@ -166,7 +166,7 @@ function firstGameDisplay() {
 
 
   function playAgain() {
-    prompt("Would you like to Rochambeau again?");
+    prompt("Would you like to Rochambeau again? Enter 'y' to play again or 'n' to exit the game.");
     replayAnswer = readline.question();
     while (replayAnswer[0] !== 'n' && replayAnswer[0] !== 'y') {
       console.clear();
