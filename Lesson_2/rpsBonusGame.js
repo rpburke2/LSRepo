@@ -43,6 +43,7 @@ const RULES = `Welcome to Rock, Paper, Scissors, Lizard, Spock.
 `;
 
 const COMMANDS = `You can use the following commands:
+
 => Press r for Rock
 => Press p for Paper
 => Press s for Scissors
@@ -61,14 +62,14 @@ const WINNING_COMBOS = {
 function printRules() {
   console.clear();
   prompt(RULES);
-  prompt('Press Enter to continue');
+  prompt('Press Enter when you are ready to continue!');
   readline.question();
 }
 
 function printCommands() {
   console.clear();
   prompt(COMMANDS);
-  prompt('Press Enter to continue');
+  prompt('Press Enter when you are ready to play!');
   readline.question();
 }
 
@@ -90,7 +91,7 @@ function computerWins(computerChoice, choice) {
 }
 
 function getChoice() {
-  prompt(`Choose one :(r)ock , (p)aper, (s)issors, (l)izard, (d)octor spock }`);
+  prompt(`Choose one :(r)ock , (p)aper, (s)cissors, (l)izard, (d)octor spock }`);
   choice = readline.question();
   choice = choice.toLowerCase();
   while (!VALID_CHOICES.includes(choice.toLowerCase())) {
@@ -153,7 +154,7 @@ function roundWinner(choice, computerChoice) {
 }
 
 
-function noWinner() {
+function winCounter() {
   if (playerScore === 3) {
     return false;
   } else if (computerScore === 3) {
@@ -206,7 +207,7 @@ while (true) {
     firstGameDisplay();
     getPlayerAndComputerChoices();
     roundWinner(choice, computerChoice);
-  } while (noWinner());
+  } while (winCounter());
   finalWinner();
   playAgain();
   if (endGame()) {
