@@ -18,7 +18,7 @@ while (true) {
   let choice = readline.question();
 
   while (!VALID_CHOICES.includes(choice)) {
-    prompt("That's not a valid choice.");
+    prompt("Please enter a valid choice: (r)ock, (p)aper, (s)cissors.");
     choice = readline.question();
   }
 
@@ -38,11 +38,11 @@ while (true) {
   } else {
     prompt("It's a tie!");
   }
-  prompt('Would you like to play again? (y/n)');
+  prompt('Would you like to Rochambeau again?');
   let answer = readline.question().toLowerCase();
 
   while (answer[0] !== 'y' && answer[0] !== 'n') {
-    prompt("Please enter 'y' or 'n'");
+    prompt("Please enter 'y' to play again or 'n' if you've had enough!");
     answer = readline.question();
   }
   if (answer[0] !== 'y') break;

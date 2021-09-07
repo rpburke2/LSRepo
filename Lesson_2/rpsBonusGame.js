@@ -1,6 +1,6 @@
 /* 
 
-Rock Paper Scissor Game
+Rock Paper Scissor Game with Lizard and Spock Bonus
 
 1. ask user for choice
 2. computer will choose choice
@@ -19,6 +19,10 @@ let playerScore = 0;
 let computerScore = 0;
 let replayAnswer = '';
 let choice = '';
+
+function prompt(msg) {
+  console.log(`=> ${msg}`);
+}
 
 const RULES = `Welcome to Rock, Paper, Scissors, Lizard, Spock. Check out how to win below :
 => Paper beats Rock
@@ -54,9 +58,7 @@ function playerWins(choice, computerChoice) {
 }
 
 function computerWins(computerChoice, choice) {
-e = choice.toLowerCase();
-  }
-  return choice;
+  return WINNING_COMBOS[computerChoice].includes(choice);
 }
 
 function getComputerChoice() {
@@ -76,36 +78,19 @@ function convertChoice() {
       break;
     case 'l': choice = 'lizard';
       break;
-    case 'd': choice = 'Docter Spock';
+    case 'd': choice = 'Doctor Spock';
       break;
   }
   return choice;
 }
 
-
-function convertComputerChoice() {
-  switch (computerChoice) {
-    case 'r': computerChoice = 'rock';
-      break;
-    case 'p': computerChoice = 'paper';
-      break;
-    case 's': computerChoice = 'scissors';
-      break;
-    case 'l': computerChoice = 'lizard';
-      break;
-    case 'd': computerChoice = 'Docter Spock';
-      break;
-  }
-  return computerChoice;
-}
-
-
 function getPlayerAndComputerChoices() {
   getChoice();
-  convertChoice(choice);
+  choice = convertChoice(choice);
   getComputerChoice();
-  convertComputerChoice(computerChoice);
+  computerChoice = convertChoice(computerChoice);
 }
+
 
 
 function roundWinner(choice, computerChoice) {
