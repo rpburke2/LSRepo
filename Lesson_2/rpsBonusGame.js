@@ -2,10 +2,13 @@
 
 Rock Paper Scissor Game with Lizard and Spock Bonus
 
-1. ask user for choice
-2. computer will choose choice
-3. display who won the game
-4. user asked if they would liked to play again
+1. welcome user
+2. explain the game
+3. ask user for choice
+4. computer will choose choice
+5. display who won the game
+6. display who is the final winner out of 5 games (first to 3)
+7. ask user if they would like to play again
 
 */
 
