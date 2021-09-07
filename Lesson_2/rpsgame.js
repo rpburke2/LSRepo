@@ -13,12 +13,14 @@ function prompt(msg) {
   console.log(`=> ${msg}`);
 }
 
+prompt("Welcome to Rock, Paper, Scissors and Good Luck!!");
+
 while (true) {
   prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
   let choice = readline.question();
 
   while (!VALID_CHOICES.includes(choice)) {
-    prompt("Please enter a valid choice: (r)ock, (p)aper, (s)cissors.");
+    prompt("Please enter a valid choice: rock, paper, scissors.");
     choice = readline.question();
   }
 
@@ -38,7 +40,7 @@ while (true) {
   } else {
     prompt("It's a tie!");
   }
-  prompt('Would you like to Rochambeau again?');
+  prompt("Would you like to Rochambeau again? Enter 'y' to play again or 'n' to exit the game!");
   let answer = readline.question().toLowerCase();
 
   while (answer[0] !== 'y' && answer[0] !== 'n') {
