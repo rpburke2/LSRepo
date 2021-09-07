@@ -133,12 +133,12 @@ function firstGameDisplay() {
     prompt(`You chose ${choice}, computer chose ${computerChoice} `);
     if (playerWins(choice, computerChoice)) {
       playerScore += 1;
-      prompt(`You Won round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+      prompt(`You Won round ${gameCount} *** SCORE => computer[${computerScore}] player[${playerScore}]`);
     } else if (computerWins(computerChoice, choice)) {
       computerScore += 1;
-      prompt(`Computer wins round ${gameCount} |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+      prompt(`Computer wins round ${gameCount} *** SCORE => computer[${computerScore}] player[${playerScore}]`);
     } else {
-      prompt(`Round ${gameCount} was a tie! |||| SCORE => computer[${computerScore}] player[${playerScore}]`);
+      prompt(`Round ${gameCount} was a tie! *** SCORE => computer[${computerScore}] player[${playerScore}]`);
     }
   }
 
@@ -180,7 +180,7 @@ function firstGameDisplay() {
   function endGame() {
     if (replayAnswer[0] !== 'y') {
       console.clear();
-      console.log('Hey! Thanks for playing Rock, Paper, Scissors, Lizard, Spock!');
+      console.log('Hey - thanks for playing Rock, Paper, Scissors, Lizard, Spock!');
       return true;
     } else {
         console.clear();
