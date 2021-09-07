@@ -74,27 +74,26 @@ function firstGameDisplay() {
     gameCount += 1;
     console.clear();
   }
-
+}
 
   function playerWins(choice, computerChoice) {
     return WINNING_COMBOS[choice].includes(computerChoice);
-  }
+}
 
   function computerWins(computerChoice, choice) {
     return WINNING_COMBOS[computerChoice].includes(choice);
-  }
+}
 
-  function getChoice() {
-    prompt(`Choose one :(r)ock , (p)aper, (s)issors, (l)izard, (d)octor spock }`);
+function getChoice() {
+  prompt(`Choose one :(r)ock , (p)aper, (s)issors, (l)izard, (d)octor spock }`);
+  choice = readline.question();    choice = choice.toLowerCase();
+  while (!VALID_CHOICES.includes(choice.toLowerCase())) {
+    prompt("That won't work, we need a valid input!");
     choice = readline.question();
     choice = choice.toLowerCase();
-    while (!VALID_CHOICES.includes(choice.toLowerCase())) {
-      prompt("That won't work, we need a valid input!");
-      choice = readline.question();
-      choice = choice.toLowerCase();
-    }
-    return choice;
   }
+  return choice;
+}
 
   function getComputerChoice() {
     randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
@@ -203,4 +202,3 @@ function firstGameDisplay() {
       break;
     }
   }
-}
