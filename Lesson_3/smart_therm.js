@@ -32,5 +32,18 @@ const calcTempAmplitude = function (temps) {
     if (curTemp < min) min = curTemp;
   }
   console.log(max, min);
+  return max - min;
 };
-calcTempAmplitude([3, 7, 4, 23]);
+
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
+
+// PROBLEM 2
+// Function should now receive 2 arrays of temps
+
+// 1) Understanding the problem
+// - With 2 arrays, should we implement funitonality twice? -NO, just merge arrays
+
+// 2) Breaking up into sub-problems
+// - merge 2 arrays
+
