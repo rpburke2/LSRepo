@@ -22,7 +22,14 @@ const temperatures = [20, 30, 15, 0, 'error', 45, 65, 73, 86, 95];
 
 const calcTempAmplitude = function (temps) {
   let max = temps[0];
+  let min = temps[0];
+
   for (let i = 0; i < temps.length; i++) {
-    
-  } 
+    const curTemp = temps[i];
+
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max);
 };
+calcTempAmplitude([3, 7, 4, 23]);
